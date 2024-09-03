@@ -14,20 +14,16 @@
         </chart-card>
       </el-col>
       <el-col :span="10">
-        <chart-card>
-
-        </chart-card>
+        <chart-card> </chart-card>
       </el-col>
       <el-col :span="7">
         <chart-card>
-          <rose-echart :rose-data="showGoodsCategorySale"</rose-echart>
+          <rose-echart :rose-data="showGoodsCategorySale"></rose-echart>
         </chart-card>
       </el-col>
       <el-col :span="12">
         <chart-card>
-          <line-echart>
-
-          </line-echart>
+          <line-echart> </line-echart>
         </chart-card>
       </el-col>
       <el-col :span="12">
@@ -37,28 +33,32 @@
   </div>
 </template>
 <script lang="ts" setup>
-import lineEchart from '@/components/page-echarts/src/line-echart.vue';
-import pieEchart from '@/components/page-echarts/src/pie-echart.vue';
-import roseEchart from '@/components/page-echarts/src/rose-echart.vue';
+import lineEchart from '@/components/page-echarts/src/line-echart.vue'
+import pieEchart from '@/components/page-echarts/src/pie-echart.vue'
+import roseEchart from '@/components/page-echarts/src/rose-echart.vue'
 
-
-import useDashbordStore from '@/stores/main/anaysis/dashbord';
-import { storeToRefs } from 'pinia';
-import { computed } from 'vue';
-import chartCard from './c-cpns/chart-card/chart-card.vue';
-import countCard from './c-cpns/count-card/count-card.vue';
+import useDashbordStore from '@/stores/main/anaysis/dashbord'
+import { storeToRefs } from 'pinia'
+import { computed } from 'vue'
+import chartCard from './c-cpns/chart-card/chart-card.vue'
+import countCard from './c-cpns/count-card/count-card.vue'
 
 const store = useDashbordStore()
 store.fetchAnalysisDataAction()
-const { amountList, goodsCategoryCount,goodsCategorySale } = storeToRefs(store)
+const { amountList, goodsCategoryCount, goodsCategorySale } = storeToRefs(store)
 
 const showGoodsCategoryCount = computed(() => {
-  return goodsCategoryCount.value.map(item => ({ name: item.name, value: item.goodsCount }))
+  return goodsCategoryCount.value.map((item) => ({
+    name: item.name,
+    value: item.goodsCount
+  }))
 })
 const showGoodsCategorySale = computed(() => {
-  return goodsCategorySale.value.map(item => ({ name: item.name, value: item.goodsCount }))
+  return goodsCategorySale.value.map((item) => ({
+    name: item.name,
+    value: item.goodsCount
+  }))
 })
-
 </script>
 <style lang="less" scoped>
 .el-row {

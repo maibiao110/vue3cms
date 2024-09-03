@@ -1,6 +1,6 @@
 import type { IProps } from '@/components/page-modal/types'
 const modalConfig: IProps['modalConfig'] = {
-  pageName:'department',
+  pageName: 'department',
   header: {
     newTitle: '新建部门',
     editTitle: '编辑部门'

@@ -4,10 +4,10 @@
   </div>
 </template>
 <script lang="ts" setup>
-import type { EChartsOption } from 'echarts';
-import * as echarts from 'echarts';
-import { onMounted, ref, watchEffect } from 'vue';
-import ChinaJson from '../data/china.json';
+import type { EChartsOption } from 'echarts'
+import * as echarts from 'echarts'
+import { onMounted, ref, watchEffect } from 'vue'
+import ChinaJson from '../data/china.json'
 echarts.registerMap('china', ChinaJson as any)
 const echartRef = ref<HTMLElement>()
 interface IProps {
@@ -19,7 +19,6 @@ onMounted(() => {
     renderer: 'canvas'
   })
   watchEffect(() => echartInstance.setOption(props.option))
-
 })
 </script>
 <style lang="less" scoped>

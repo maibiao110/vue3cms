@@ -1,21 +1,18 @@
 <script lang="ts" setup>
-import useLoginStore from '@/stores/login/login';
-import { mapPathToMenu } from '@/utils/map-menus';
-import { computed } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
-const loginStore = useLoginStore();
-const userMenus = loginStore.userMenus;
+import useLoginStore from '@/stores/login/login'
+import { mapPathToMenu } from '@/utils/map-menus'
+import { computed } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+const loginStore = useLoginStore()
+const userMenus = loginStore.userMenus
 const router = useRouter()
 
 const route = useRoute()
 
-
 const defalutActive = computed(() => {
   const pathMenu = mapPathToMenu(route.path, userMenus)
   return pathMenu.id + ' '
-
 })
-
 
 function handleItemClick(subitem: any) {
   router.push(subitem.url)
@@ -30,14 +27,17 @@ defineProps({
 <template>
   <div class="main-menu">
     <div class="logo">
-      <img class="img" src="@/assets/img/logo.svg" alt="">
+      <img class="img" src="@/assets/img/logo.svg" alt="" />
       <h2 v-show="!isFold" class="title">CMS</h2>
     </div>
     <div class="menu">
-
-      <el-menu text-color="#b7bdc3" active-text-color="#fff"
-        background-color="#001529" :collapse="isFold"
-        :default-active=defalutActive>
+      <el-menu
+        text-color="#b7bdc3"
+        active-text-color="#fff"
+        background-color="#001529"
+        :collapse="isFold"
+        :default-active="defalutActive"
+      >
         <template v-for="item in userMenus" :key="item.id">
           <el-sub-menu :index="item.id + ' '">
             <template #title>
@@ -47,8 +47,10 @@ defineProps({
               <span>{{ item.name }}</span>
             </template>
             <template v-for="subitem in item.children" :key="subitem.id">
-              <el-menu-item :index="subitem.id + ' '"
-                @click="handleItemClick(subitem)">
+              <el-menu-item
+                :index="subitem.id + ' '"
+                @click="handleItemClick(subitem)"
+              >
                 {{ subitem.name }}
               </el-menu-item>
             </template>
@@ -56,7 +58,6 @@ defineProps({
         </template>
       </el-menu>
     </div>
-
   </div>
 </template>
 <style lang="less" scoped>

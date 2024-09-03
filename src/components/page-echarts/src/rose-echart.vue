@@ -4,11 +4,11 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { computed } from 'vue';
-import baseEchart from './base-echart.vue';
+import { computed } from 'vue'
+import baseEchart from './base-echart.vue'
 
-import type { EChartsOption } from 'echarts';
-import { type IEchartValueType } from '../types/index';
+import type { EChartsOption } from 'echarts'
+import { type IEchartValueType } from '../types/index'
 
 interface IProps {
   roseData: IEchartValueType[]
@@ -16,7 +16,6 @@ interface IProps {
 const props = defineProps<IProps>()
 
 const options = computed<EChartsOption>(() => {
-
   return {
     toolbox: {
       show: true,
@@ -49,7 +48,6 @@ const options = computed<EChartsOption>(() => {
       }
     ]
   }
-
 })
 </script>
 <style lang="less" scoped></style>

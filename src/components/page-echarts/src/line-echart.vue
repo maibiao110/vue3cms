@@ -4,8 +4,8 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { type EChartsOption } from 'echarts';
-import baseEchart from './base-echart.vue';
+import { type EChartsOption } from 'echarts'
+import baseEchart from './base-echart.vue'
 const option: EChartsOption = {
   xAxis: {
     type: 'category',

@@ -8,16 +8,15 @@
   </div>
 </template>
 <script lang="ts" setup>
-import useLoginStore from '@/stores/login/login';
-import { mapPathToCrumb } from '@/utils/map-menus';
-import { computed } from 'vue';
+import useLoginStore from '@/stores/login/login'
+import { mapPathToCrumb } from '@/utils/map-menus'
+import { computed } from 'vue'
 
-import { useRoute } from 'vue-router';
+import { useRoute } from 'vue-router'
 const route = useRoute()
 const userMenus = useLoginStore().userMenus
 const breadcrumbs = computed(() => {
   return mapPathToCrumb(route.path, userMenus)
 })
-
 </script>
 <style lang="less" scoped></style>

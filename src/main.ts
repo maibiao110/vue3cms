@@ -14,15 +14,3 @@ loginStore.loadLocalCacheAction()
 app.use(router)
 app.use(registerIcons)
 app.mount('#app')
-
-
-
-
-
-
-
-
-
-
-
-

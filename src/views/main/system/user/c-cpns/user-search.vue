@@ -14,12 +14,15 @@
         </el-col>
         <el-col :span="8">
           <el-form-item label="手机号码" label-width="80px" prop="cellphone">
-            <el-input v-model="searchForm.cellphone"></el-input>
-          </el-form-item></el-col>
+            <el-input v-model="searchForm.cellphone"></el-input> </el-form-item
+        ></el-col>
         <el-col :span="8">
           <el-form-item label="状态" label-width="80px" prop="enable">
-            <el-select v-model="searchForm.enable" placeholder="请选择查询状态"
-              clearable>
+            <el-select
+              v-model="searchForm.enable"
+              placeholder="请选择查询状态"
+              clearable
+            >
               <el-option label="启用" :value="1" />
               <el-option label="禁用" :value="0" />
             </el-select>
@@ -27,25 +30,29 @@
         </el-col>
         <el-col :span="8">
           <el-form-item label="创建时间" label-width="80px" prop="createAt">
-            <el-date-picker v-model="searchForm.createAt" type="daterange"
-              range-separator="-" start-placeholder="开始时间"
-              end-placeholder="结束时间" />
+            <el-date-picker
+              v-model="searchForm.createAt"
+              type="daterange"
+              range-separator="-"
+              start-placeholder="开始时间"
+              end-placeholder="结束时间"
+            />
           </el-form-item>
         </el-col>
-
       </el-row>
     </el-form>
     <!-- 重置和搜索按钮 -->
     <div class="btns">
       <el-button icon="refresh" @click="handleResetClick">重置</el-button>
-      <el-button type="primary" @click="handleQueryClick"
-        icon="search">搜索</el-button>
+      <el-button type="primary" @click="handleQueryClick" icon="search"
+        >搜索</el-button
+      >
     </div>
   </div>
 </template>
 <script lang="ts" setup>
-import type { ElForm } from 'element-plus';
-import { reactive, ref } from 'vue';
+import type { ElForm } from 'element-plus'
+import { reactive, ref } from 'vue'
 const searchForm = reactive({
   name: '',
   realname: '',
@@ -61,10 +68,7 @@ function handleResetClick() {
 }
 function handleQueryClick() {
   emit('queryClick', searchForm)
-
 }
-
-
 </script>
 <style lang="less" scoped>
 .search {

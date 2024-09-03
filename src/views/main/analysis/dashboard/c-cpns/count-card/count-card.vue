@@ -7,7 +7,6 @@
           <warning />
         </el-icon>
       </el-tooltip>
-
     </div>
     <div class="content">
       <span v-if="amount === 'saleroom'">￥</span>
@@ -22,14 +21,14 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { CountUp } from 'countup.js';
-import { onMounted, ref } from 'vue';
+import { CountUp } from 'countup.js'
+import { onMounted, ref } from 'vue'
 interface IProp {
-  amount?: string,
-  title?: string,
-  tips?: string,
-  number1?: number,
-  number2?: number,
+  amount?: string
+  title?: string
+  tips?: string
+  number1?: number
+  number2?: number
   subTitle?: string
 }
 const props = withDefaults(defineProps<IProp>(), {
@@ -42,16 +41,13 @@ const props = withDefaults(defineProps<IProp>(), {
 const count1Ref = ref<HTMLElement>()
 const count2Ref = ref<HTMLElement>()
 
-
 onMounted(() => {
   const countup1 = new CountUp(count1Ref.value!, props.number1)
   const countup2 = new CountUp(count2Ref.value!, props.number2)
 
   countup1.start()
   countup2.start()
-
 })
-
 </script>
 <style lang="less" scoped>
 .count-header {

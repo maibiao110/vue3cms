@@ -4,10 +4,10 @@
   </div>
 </template>
 <script lang="ts" setup>
-import type { EChartsOption } from 'echarts';
-import { computed } from 'vue';
-import { type IEchartValueType } from '../types/index';
-import baseEchart from './base-echart.vue';
+import type { EChartsOption } from 'echarts'
+import { computed } from 'vue'
+import { type IEchartValueType } from '../types/index'
+import baseEchart from './base-echart.vue'
 interface IProps {
   pieData: IEchartValueType[]
 }
